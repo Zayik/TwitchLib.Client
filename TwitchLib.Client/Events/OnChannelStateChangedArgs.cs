@@ -9,15 +9,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnChannelStateChangedArgs : EventArgs
+    public class OnChannelStateChangedArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing the current channel state.
         /// </summary>
-        public ChannelState ChannelState;
+        public ChannelState ChannelState { get; set; }
         /// <summary>
         /// Property representing the channel received state from.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
     }
 }

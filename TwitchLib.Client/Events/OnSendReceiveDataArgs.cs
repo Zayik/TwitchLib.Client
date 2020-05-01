@@ -8,15 +8,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnSendReceiveDataArgs : EventArgs
+    public class OnSendReceiveDataArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing the direction of the data.
         /// </summary>
-        public Enums.SendReceiveDirection Direction;
+        public Enums.SendReceiveDirection Direction { get; set; }
         /// <summary>
         /// Property representing the data that was either sent or received.
         /// </summary>
-        public string Data;
+        public string Data { get; set; }
     }
 }

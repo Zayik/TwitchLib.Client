@@ -2,16 +2,18 @@
 
 namespace TwitchLib.Client.Models
 {
-    public class HostingStarted
+    public class HostingStarted : EntityData
     {
         /// <summary>Property representing channel that started hosting.</summary>
-        public string HostingChannel;
+        public string HostingChannel { get; protected set; }
 
         /// <summary>Property representing targeted channel, channel being hosted.</summary>
-        public string TargetChannel;
+        public string TargetChannel { get; protected set; }
 
         /// <summary>Property representing number of viewers in channel hosting target channel.</summary>
-        public int Viewers;
+        public int Viewers { get; protected set; }
+
+        public HostingStarted() { }
 
         public HostingStarted(IrcMessage ircMessage)
         {

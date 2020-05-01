@@ -10,7 +10,7 @@ using TwitchLib.Client.Models.Internal;
 namespace TwitchLib.Client.Models
 {
     /// <summary>Class representing a resubscriber.</summary>
-    public class SubscriberBase
+    public class SubscriberBase : EntityData
     {
         /// <summary>Property representing list of badges assigned.</summary>
         public List<KeyValuePair<string, string>> Badges { get; }
@@ -98,17 +98,17 @@ namespace TwitchLib.Client.Models
             RawIrc = ircMessage.ToString();
             ResubMessage = ircMessage.Message;
 
-            foreach (var tag in ircMessage.Tags.Keys)
+            foreach(var tag in ircMessage.Tags.Keys)
             {
                 var tagValue = ircMessage.Tags[tag];
-                switch (tag)
+                switch(tag)
                 {
                     case Tags.Badges:
                         Badges = Common.Helpers.ParseBadges(tagValue);
                         // iterate through badges for special circumstances
-                        foreach (var badge in Badges)
+                        foreach(var badge in Badges)
                         {
-                            if (badge.Key == "partner")
+                            if(badge.Key == "partner")
                                 IsPartner = true;
                         }
                         break;
@@ -117,7 +117,7 @@ namespace TwitchLib.Client.Models
                         break;
                     case Tags.Color:
                         ColorHex = tagValue;
-                        if (!string.IsNullOrEmpty(ColorHex))
+                        if(!string.IsNullOrEmpty(ColorHex))
                             Color = ColorTranslator.FromHtml(ColorHex);
                         break;
                     case Tags.DisplayName:
@@ -148,7 +148,7 @@ namespace TwitchLib.Client.Models
                         MsgParamShouldShareStreak = Common.Helpers.ConvertToBool(tagValue);
                         break;
                     case Tags.MsgParamSubPlan:
-                        switch (tagValue.ToLower())
+                        switch(tagValue.ToLower())
                         {
                             case "prime":
                                 SubscriptionPlan = SubscriptionPlan.Prime;
@@ -189,7 +189,7 @@ namespace TwitchLib.Client.Models
                         UserId = tagValue;
                         break;
                     case Tags.UserType:
-                        switch (tagValue)
+                        switch(tagValue)
                         {
                             case "mod":
                                 UserType = UserType.Moderator;

@@ -9,11 +9,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnUserTimedoutArgs : EventArgs
+    public class OnUserTimedoutArgs : EntityEventArgs
     {
         /// <summary>
         /// The user timeout
         /// </summary>
-        public UserTimeout UserTimeout;
+        public UserTimeout UserTimeout { get; set; }
     }
 }

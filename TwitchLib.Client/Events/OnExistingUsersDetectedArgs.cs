@@ -9,15 +9,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnExistingUsersDetectedArgs : EventArgs
+    public class OnExistingUsersDetectedArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing string list of existing users.
         /// </summary>
-        public List<string> Users;
+        public List<string> Users { get; set; }
         /// <summary>
         /// Property representing channel bot is connected to.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
     }
 }

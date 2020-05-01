@@ -6,7 +6,7 @@ using TwitchLib.Client.Enums;
 namespace TwitchLib.Client.Models
 {
     /// <summary>Class represents Message.</summary>
-    public abstract class TwitchLibMessage
+    public abstract class TwitchLibMessage : EntityData
     {
         /// <summary>List of key-value pair badges.</summary>
         public List<KeyValuePair<string, string>> Badges { get; protected set; }

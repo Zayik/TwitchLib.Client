@@ -1,6 +1,6 @@
 ﻿namespace TwitchLib.Client.Models
 {
-    public class OutboundWhisperMessage
+    public class OutboundWhisperMessage : EntityData
     {
         public string Username { get; set; }
 

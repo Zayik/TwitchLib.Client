@@ -1,9 +1,11 @@
-﻿namespace TwitchLib.Client.Exceptions
+﻿using TwitchLib.Client.Models;
+
+namespace TwitchLib.Client.Exceptions
 {
     /// <summary>
     /// Class FailureToReceiveJoinConfirmationException.
     /// </summary>
-    public class FailureToReceiveJoinConfirmationException
+    public class FailureToReceiveJoinConfirmationException : EntityData
     {
         /// <summary>
         /// Exception representing failure of client to receive JOIN confirmation.
@@ -15,6 +17,11 @@
         /// </summary>
         /// <value>The details.</value>
         public string Details { get; protected set; }
+
+        /// <summary>
+        /// Exception construtor.
+        /// </summary>
+        public FailureToReceiveJoinConfirmationException() { }
 
         /// <summary>
         /// Exception construtor.

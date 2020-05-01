@@ -1,6 +1,6 @@
 ﻿namespace TwitchLib.Client.Models
 {
-    public class OutgoingMessage
+    public class OutgoingMessage : EntityData
     {
         public string Channel { get; set; }
 

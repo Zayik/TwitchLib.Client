@@ -8,11 +8,11 @@ namespace TwitchLib.Client.Events
     /// Implements the <see cref="System.EventArgs" />
     /// </summary>
     /// <seealso cref="System.EventArgs" />
-    public class OnRitualNewChatterArgs : EventArgs
+    public class OnRitualNewChatterArgs : EntityEventArgs
     {
         /// <summary>
         /// The ritual new chatter
         /// </summary>
-        public RitualNewChatter RitualNewChatter;
+        public RitualNewChatter RitualNewChatter { get; set; }
     }
 }

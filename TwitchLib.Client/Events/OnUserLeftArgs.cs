@@ -8,15 +8,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnUserLeftArgs : EventArgs
+    public class OnUserLeftArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing username of user that left.
         /// </summary>
-        public string Username;
+        public string Username { get; set; }
         /// <summary>
         /// Property representing channel bot is connected to.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
     }
 }

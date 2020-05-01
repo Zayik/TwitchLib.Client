@@ -7,7 +7,7 @@ namespace TwitchLib.Client.Events
     /// Implements the <see cref="System.EventArgs" />
     /// </summary>
     /// <seealso cref="System.EventArgs" />
-    public class OnUnaccountedForArgs : EventArgs
+    public class OnUnaccountedForArgs : EntityEventArgs
     {
         /// <summary>
         /// Gets or sets the raw irc.

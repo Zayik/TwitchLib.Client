@@ -5,18 +5,18 @@ namespace TwitchLib.Client.Events
 {
     /// <summary>
     /// Class OnAnonGiftedSubscriptionArgs.
-    /// Implements the <see cref="System.EventArgs" />
+    /// Implements the <see cref="EntityEventArgs" />
     /// </summary>
-    /// <seealso cref="System.EventArgs" />
-    public class OnAnonGiftedSubscriptionArgs : EventArgs
+    /// <seealso cref="EntityEventArgs" />
+    public class OnAnonGiftedSubscriptionArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing the information of the gifted subscription.
         /// </summary>
-        public AnonGiftedSubscription AnonGiftedSubscription;
+        public AnonGiftedSubscription AnonGiftedSubscription { get; set; }
         /// <summary>
         /// Property representing the Twitch channel this event fired from.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
     }
 }

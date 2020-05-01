@@ -8,15 +8,15 @@ namespace TwitchLib.Client.Events
     /// Implements the <see cref="System.EventArgs" />
     /// </summary>
     /// <seealso cref="System.EventArgs" />
-    public class OnRaidNotificationArgs : EventArgs
+    public class OnRaidNotificationArgs : EntityEventArgs
     {
         /// <summary>
         /// The raid notification
         /// </summary>
-        public RaidNotification RaidNotification;
+        public RaidNotification RaidNotification { get; set; }
         /// <summary>
         /// The channel
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
     }
 }

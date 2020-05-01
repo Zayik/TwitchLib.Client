@@ -9,12 +9,12 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnChatCommandReceivedArgs : EventArgs
+    public class OnChatCommandReceivedArgs : EntityEventArgs
     {
         /// <summary>
         /// The command
         /// </summary>
         /// Property representing received command.
-        public ChatCommand Command;
+        public ChatCommand Command { get; set; }
     }
 }

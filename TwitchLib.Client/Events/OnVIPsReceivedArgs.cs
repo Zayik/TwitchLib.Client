@@ -9,15 +9,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnVIPsReceivedArgs : EventArgs
+    public class OnVIPsReceivedArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing the channel the VIPs list came from.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
         /// <summary>
         /// Property representing the list of VIPs.
         /// </summary>
-        public List<string> VIPs;
+        public List<string> VIPs { get; set; }
     }
 }

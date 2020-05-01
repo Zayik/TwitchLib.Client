@@ -3,7 +3,7 @@
     /// <summary>
     /// Object representing an emote in an EmoteSet in a chat message.
     /// </summary>
-    public class Emote
+    public class Emote : EntityData
     {
         /// <summary>Twitch-assigned emote Id.</summary>
         public string Id { get; }

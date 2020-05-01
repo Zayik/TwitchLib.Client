@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace TwitchLib.Client.Models
 {
     /// <summary>Class used to store credentials used to connect to Twitch chat/whisper.</summary>
-    public class ConnectionCredentials
+    public class ConnectionCredentials : EntityData
     {
         public const string DefaultWebSocketUri = "wss://irc-ws.chat.twitch.tv:443";
 
@@ -24,14 +24,14 @@ namespace TwitchLib.Client.Models
             string twitchWebsocketURI = DefaultWebSocketUri,
             bool disableUsernameCheck = false)
         {
-            if (!disableUsernameCheck && !new Regex("^([a-zA-Z0-9][a-zA-Z0-9_]{3,25})$").Match(twitchUsername).Success)
+            if(!disableUsernameCheck && !new Regex("^([a-zA-Z0-9][a-zA-Z0-9_]{3,25})$").Match(twitchUsername).Success)
                 throw new Exception($"Twitch username does not appear to be valid. {twitchUsername}");
 
             TwitchUsername = twitchUsername.ToLower();
             TwitchOAuth = twitchOAuth;
 
             // Make sure proper formatting is applied to oauth
-            if (!twitchOAuth.Contains(":"))
+            if(!twitchOAuth.Contains(":"))
             {
                 TwitchOAuth = $"oauth:{twitchOAuth.Replace("oauth", "")}";
             }

@@ -6,36 +6,38 @@ using TwitchLib.Client.Models.Internal;
 
 namespace TwitchLib.Client.Models
 {
-    public class CommunitySubscription
+    public class CommunitySubscription : EntityData
     {
-        public List<KeyValuePair<string, string>> Badges;
-        public List<KeyValuePair<string, string>> BadgeInfo;
-        public string Color;
-        public string DisplayName;
-        public string Emotes;
-        public string Id;
-        public string Login;
-        public bool IsModerator;
-        public string MsgId;
-        public int MsgParamMassGiftCount;
-        public int MsgParamSenderCount;
-        public SubscriptionPlan MsgParamSubPlan;
-        public string RoomId;
-        public bool IsSubscriber;
-        public string SystemMsg;
-        public string SystemMsgParsed;
-        public string TmiSentTs;
-        public bool IsTurbo;
-        public string UserId;
-        public UserType UserType;
+        public List<KeyValuePair<string, string>> Badges { get; protected set; }
+        public List<KeyValuePair<string, string>> BadgeInfo { get; protected set; }
+        public string Color { get; protected set; }
+        public string DisplayName { get; protected set; }
+        public string Emotes { get; protected set; }
+        public string Id { get; protected set; }
+        public string Login { get; protected set; }
+        public bool IsModerator { get; protected set; }
+        public string MsgId { get; protected set; }
+        public int MsgParamMassGiftCount { get; protected set; }
+        public int MsgParamSenderCount { get; protected set; }
+        public SubscriptionPlan MsgParamSubPlan { get; protected set; }
+        public string RoomId { get; protected set; }
+        public bool IsSubscriber { get; protected set; }
+        public string SystemMsg { get; protected set; }
+        public string SystemMsgParsed { get; protected set; }
+        public string TmiSentTs { get; protected set; }
+        public bool IsTurbo { get; protected set; }
+        public string UserId { get; protected set; }
+        public UserType UserType { get; protected set; }
+
+        public CommunitySubscription() { }
 
         public CommunitySubscription(IrcMessage ircMessage)
         {
-            foreach (var tag in ircMessage.Tags.Keys)
+            foreach(var tag in ircMessage.Tags.Keys)
             {
                 var tagValue = ircMessage.Tags[tag];
 
-                switch (tag)
+                switch(tag)
                 {
                     case Tags.Badges:
                         Badges = Common.Helpers.ParseBadges(tagValue);
@@ -65,7 +67,7 @@ namespace TwitchLib.Client.Models
                         MsgId = tagValue;
                         break;
                     case Tags.MsgParamSubPlan:
-                        switch (tagValue)
+                        switch(tagValue)
                         {
                             case "prime":
                                 MsgParamSubPlan = SubscriptionPlan.Prime;
@@ -109,7 +111,7 @@ namespace TwitchLib.Client.Models
                         UserId = tagValue;
                         break;
                     case Tags.UserType:
-                        switch (tagValue)
+                        switch(tagValue)
                         {
                             case "mod":
                                 UserType = UserType.Moderator;

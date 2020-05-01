@@ -9,15 +9,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnNewSubscriberArgs : EventArgs
+    public class OnNewSubscriberArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing subscriber object.
         /// </summary>
-        public Subscriber Subscriber;
+        public Subscriber Subscriber { get; set; }
         /// <summary>
         /// Property representing the Twitch channel this event fired from.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
     }
 }

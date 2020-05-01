@@ -9,11 +9,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnUserStateChangedArgs : EventArgs
+    public class OnUserStateChangedArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing user state object.
         /// </summary>
-        public UserState UserState;
+        public UserState UserState { get; set; }
     }
 }

@@ -9,11 +9,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnWhisperReceivedArgs : EventArgs
+    public class OnWhisperReceivedArgs : EntityEventArgs
     {
         /// <summary>
         /// The whisper message
         /// </summary>
-        public WhisperMessage WhisperMessage;
+        public WhisperMessage WhisperMessage { get; set; }
     }
 }

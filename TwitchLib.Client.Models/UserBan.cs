@@ -2,7 +2,7 @@
 
 namespace TwitchLib.Client.Models
 {
-    public class UserBan
+    public class UserBan : EntityData
     {
         /// <summary>Reason for ban, if it was provided.</summary>
         public string BanReason;
@@ -19,7 +19,7 @@ namespace TwitchLib.Client.Models
             Username = ircMessage.Message;
 
             var successBanReason = ircMessage.Tags.TryGetValue(Tags.BanReason, out var banReason);
-            if (successBanReason)
+            if(successBanReason)
             {
                 BanReason = banReason;
             }

@@ -8,21 +8,21 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnMessageClearedArgs : EventArgs
+    public class OnMessageClearedArgs : EntityEventArgs
     {
         /// <summary>
         /// Channel that had message cleared event.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
 
         /// <summary>
         /// Message contents that received clear message
         /// </summary>
-        public string Message;
+        public string Message { get; set; }
 
         /// <summary>
         /// Message ID representing the message that was cleared
         /// </summary>
-        public string TargetMessageId;
+        public string TargetMessageId { get; set; }
     }
 }

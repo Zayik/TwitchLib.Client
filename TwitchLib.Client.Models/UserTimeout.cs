@@ -2,7 +2,7 @@
 
 namespace TwitchLib.Client.Models
 {
-    public class UserTimeout
+    public class UserTimeout : EntityData
     {
         /// <summary>Channel that had timeout event.</summary>
         public string Channel;
@@ -21,11 +21,11 @@ namespace TwitchLib.Client.Models
             Channel = ircMessage.Channel;
             Username = ircMessage.Message;
 
-            foreach (var tag in ircMessage.Tags.Keys)
+            foreach(var tag in ircMessage.Tags.Keys)
             {
                 var tagValue = ircMessage.Tags[tag];
 
-                switch (tag)
+                switch(tag)
                 {
                     case Tags.BanDuration:
                         TimeoutDuration = int.Parse(tagValue);

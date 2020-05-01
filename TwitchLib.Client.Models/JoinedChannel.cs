@@ -4,7 +4,7 @@
     // TODO: Missing builder
 
     /// <summary>Class representing a joined channel.</summary>
-    public class JoinedChannel
+    public class JoinedChannel : EntityData
     {
         /// <summary>The current channel the TwitcChatClient is connected to.</summary>
         public string Channel { get; }

@@ -118,7 +118,7 @@ namespace TwitchLib.Client.Interfaces
         /// <summary>
         /// Occurs when [on host left].
         /// </summary>
-        event EventHandler OnHostLeft;
+        event EventHandler<OnHostLeftArgs> OnHostLeft;
         /// <summary>
         /// Occurs when [on incorrect login].
         /// </summary>

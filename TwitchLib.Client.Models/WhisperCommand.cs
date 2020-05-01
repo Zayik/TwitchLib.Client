@@ -4,7 +4,7 @@ using System.Linq;
 namespace TwitchLib.Client.Models
 {
     /// <summary>Object representing a command received via Twitch chat.</summary>
-    public class WhisperCommand
+    public class WhisperCommand : EntityData
     {
         /// <summary>Property representing all arguments received in a List form.</summary>
         public List<string> ArgumentsAsList { get; }

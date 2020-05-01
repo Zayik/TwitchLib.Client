@@ -1,70 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using TwitchLib.Client.Enums;
 using TwitchLib.Client.Models.Internal;
 
 namespace TwitchLib.Client.Models
 {
-    public class AnonGiftedSubscription
+    public class AnonGiftedSubscription : EntityData
     {
-        public List<KeyValuePair<string, string>> Badges { get; }
+        public List<KeyValuePair<string, string>> Badges { get; protected set; }
 
-        public List<KeyValuePair<string, string>> BadgeInfo { get; }
+        public List<KeyValuePair<string, string>> BadgeInfo { get; protected set; }
 
-        public string Color { get; }
+        public string Color { get; protected set; }
 
-        public string DisplayName { get; }
+        public string DisplayName { get; protected set; }
 
-        public string Emotes { get; }
+        public string Emotes { get; protected set; }
 
-        public string Id { get; }
+        public string Id { get; protected set; }
 
-        public bool IsModerator { get; }
+        public bool IsModerator { get; protected set; }
 
-        public bool IsSubscriber { get; }
+        public bool IsSubscriber { get; protected set; }
 
-        public bool IsTurbo { get; }
+        public bool IsTurbo { get; protected set; }
 
-        public string Login { get; }
+        public string Login { get; protected set; }
 
-        public string MsgId { get; }
+        public string MsgId { get; protected set; }
 
-        public string MsgParamCumulativeMonths { get; }
+        public string MsgParamCumulativeMonths { get; protected set; }
 
-        public bool MsgParamShouldShareStreak { get; }
+        public bool MsgParamShouldShareStreak { get; protected set; }
 
-        public string MsgParamStreakMonths { get; }
+        public string MsgParamStreakMonths { get; protected set; }
 
-        public string MsgParamRecipientDisplayName { get; }
+        public string MsgParamRecipientDisplayName { get; protected set; }
 
-        public string MsgParamRecipientId { get; }
+        public string MsgParamRecipientId { get; protected set; }
 
-        public string MsgParamRecipientUserName { get; }
+        public string MsgParamRecipientUserName { get; protected set; }
 
-        public string MsgParamSubPlanName { get; }
+        public string MsgParamSubPlanName { get; protected set; }
 
-        public SubscriptionPlan MsgParamSubPlan { get; }
+        public SubscriptionPlan MsgParamSubPlan { get; protected set; }
 
-        public string RoomId { get; }
+        public string RoomId { get; protected set; }
 
-        public string SystemMsg { get; }
+        public string SystemMsg { get; protected set; }
 
-        public string SystemMsgParsed { get; }
+        public string SystemMsgParsed { get; protected set; }
 
-        public string TmiSentTs { get; }
+        public string TmiSentTs { get; protected set; }
 
-        public string UserId { get; }
+        public string UserId { get; protected set; }
 
-        public UserType UserType { get; }
+        public UserType UserType { get; protected set; }
+
+        public AnonGiftedSubscription() { }
 
         public AnonGiftedSubscription(IrcMessage ircMessage)
         {
-            foreach (var tag in ircMessage.Tags.Keys)
+            foreach(var tag in ircMessage.Tags.Keys)
             {
                 var tagValue = ircMessage.Tags[tag];
 
-                switch (tag)
+                switch(tag)
                 {
                     case Tags.Badges:
                         Badges = Common.Helpers.ParseBadges(tagValue);
@@ -115,7 +116,7 @@ namespace TwitchLib.Client.Models
                         MsgParamSubPlanName = tagValue;
                         break;
                     case Tags.MsgParamSubPlan:
-                        switch (tagValue)
+                        switch(tagValue)
                         {
                             case "prime":
                                 MsgParamSubPlan = SubscriptionPlan.Prime;
@@ -153,7 +154,7 @@ namespace TwitchLib.Client.Models
                         UserId = tagValue;
                         break;
                     case Tags.UserType:
-                        switch (tagValue)
+                        switch(tagValue)
                         {
                             case "mod":
                                 UserType = UserType.Moderator;

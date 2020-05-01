@@ -9,11 +9,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnIncorrectLoginArgs : EventArgs
+    public class OnIncorrectLoginArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing exception object.
         /// </summary>
-        public ErrorLoggingInException Exception;
+        public ErrorLoggingInException Exception { get; set; }
     }
 }

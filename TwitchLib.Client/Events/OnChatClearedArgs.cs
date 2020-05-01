@@ -8,11 +8,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnChatClearedArgs : EventArgs
+    public class OnChatClearedArgs : EntityEventArgs
     {
         /// <summary>
         /// Channel that had chat cleared event.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
     }
 }

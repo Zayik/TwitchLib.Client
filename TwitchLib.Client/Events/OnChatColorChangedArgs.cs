@@ -8,11 +8,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnChatColorChangedArgs : EventArgs
+    public class OnChatColorChangedArgs : EntityEventArgs
     {
         /// <summary>
         /// Property reprenting the channel the event was received in.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
     }
 }

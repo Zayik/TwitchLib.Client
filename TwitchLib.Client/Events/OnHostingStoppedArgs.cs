@@ -9,11 +9,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnHostingStoppedArgs : EventArgs
+    public class OnHostingStoppedArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing hosting channel.
         /// </summary>
-        public HostingStopped HostingStopped;
+        public HostingStopped HostingStopped { get; set; }
     }
 }

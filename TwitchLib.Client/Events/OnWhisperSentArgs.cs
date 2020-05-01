@@ -8,19 +8,19 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnWhisperSentArgs : EventArgs
+    public class OnWhisperSentArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing username of bot.
         /// </summary>
-        public string Username;
+        public string Username { get; set; }
         /// <summary>
         /// Property representing receiver of the whisper.
         /// </summary>
-        public string Receiver;
+        public string Receiver { get; set; }
         /// <summary>
         /// Property representing sent message contents.
         /// </summary>
-        public string Message;
+        public string Message { get; set; }
     }
 }

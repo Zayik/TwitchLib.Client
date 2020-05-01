@@ -7,7 +7,7 @@ using TwitchLib.Client.Models.Internal;
 namespace TwitchLib.Client.Models
 {
     /// <summary>Class representing state of a specific user.</summary>
-    public class UserState
+    public class UserState : EntityData
     {
         /// <summary>Properrty representing the chat badges a specific user has.</summary>
         public List<KeyValuePair<string, string>> Badges { get; } = new List<KeyValuePair<string, string>>();
@@ -44,10 +44,10 @@ namespace TwitchLib.Client.Models
         {
             Channel = ircMessage.Channel;
 
-            foreach (var tag in ircMessage.Tags.Keys)
+            foreach(var tag in ircMessage.Tags.Keys)
             {
                 var tagValue = ircMessage.Tags[tag];
-                switch (tag)
+                switch(tag)
                 {
                     case Tags.Badges:
                         Badges = Common.Helpers.ParseBadges(tagValue);
@@ -71,7 +71,7 @@ namespace TwitchLib.Client.Models
                         IsSubscriber = Common.Helpers.ConvertToBool(tagValue);
                         break;
                     case Tags.UserType:
-                        switch (tagValue)
+                        switch(tagValue)
                         {
                             case "mod":
                                 UserType = UserType.Moderator;
@@ -97,7 +97,7 @@ namespace TwitchLib.Client.Models
                 }
             }
 
-            if (string.Equals(ircMessage.User, Channel, StringComparison.InvariantCultureIgnoreCase))
+            if(string.Equals(ircMessage.User, Channel, StringComparison.InvariantCultureIgnoreCase))
                 UserType = UserType.Broadcaster;
         }
 

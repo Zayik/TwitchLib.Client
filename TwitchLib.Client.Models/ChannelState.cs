@@ -5,47 +5,50 @@ using TwitchLib.Client.Models.Internal;
 namespace TwitchLib.Client.Models
 {
     /// <summary>Class representing a channel state as received from Twitch chat.</summary>
-    public class ChannelState
+    public class ChannelState : EntityData
     {
         /// <summary>Property representing the current broadcaster language.</summary>
-        public string BroadcasterLanguage { get; }
+        public string BroadcasterLanguage { get; protected set; }
 
         /// <summary>Property representing the current channel.</summary>
-        public string Channel { get; }
+        public string Channel { get; protected set; }
 
         /// <summary>Property representing whether EmoteOnly mode is being applied to chat or not. WILL BE NULL IF VALUE NOT PRESENT.</summary>
-        public bool? EmoteOnly { get; }
+        public bool? EmoteOnly { get; protected set; }
 
         /// <summary>Property representing how long needed to be following to talk </summary>
-        public TimeSpan FollowersOnly { get; }
+        public TimeSpan FollowersOnly { get; protected set; }
 
         /// <summary>Property representing mercury value. Not sure what it's for.</summary>
-        public bool Mercury { get; }
+        public bool Mercury { get; protected set; }
 
         /// <summary>Property representing whether R9K is being applied to chat or not. WILL BE NULL IF VALUE NOT PRESENT.</summary>
-        public bool? R9K { get; }
+        public bool? R9K { get; protected set; }
 
         /// <summary>Property representing whether Rituals is enabled or not. WILL BE NULL IF VALUE NOT PRESENT.</summary>
-        public bool? Rituals { get; }
+        public bool? Rituals { get; protected set; }
 
         /// <summary>Twitch assignedc room id</summary>
-        public string RoomId { get; }
+        public string RoomId { get; protected set; }
 
         /// <summary>Property representing whether Slow mode is being applied to chat or not. WILL BE NULL IF VALUE NOT PRESENT.</summary>
-        public int? SlowMode { get; }
+        public int? SlowMode { get; protected set; }
 
         /// <summary>Property representing whether Sub Mode is being applied to chat or not. WILL BE NULL IF VALUE NOT PRESENT.</summary>
-        public bool? SubOnly { get; }
+        public bool? SubOnly { get; protected set; }
+
+        /// <summary>ChannelState object constructor.</summary>
+        public ChannelState() { }
 
         /// <summary>ChannelState object constructor.</summary>
         public ChannelState(IrcMessage ircMessage)
         {
             //@broadcaster-lang=;emote-only=0;r9k=0;slow=0;subs-only=1 :tmi.twitch.tv ROOMSTATE #burkeblack
-            foreach (var tag in ircMessage.Tags.Keys)
+            foreach(var tag in ircMessage.Tags.Keys)
             {
                 var tagValue = ircMessage.Tags[tag];
 
-                switch (tag)
+                switch(tag)
                 {
                     case Tags.BroadcasterLang:
                         BroadcasterLanguage = tagValue;

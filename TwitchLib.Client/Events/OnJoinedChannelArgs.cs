@@ -8,15 +8,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnJoinedChannelArgs : EventArgs
+    public class OnJoinedChannelArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing bot username.
         /// </summary>
-        public string BotUsername;
+        public string BotUsername { get; set; }
         /// <summary>
         /// Property representing the channel that was joined.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
     }
 }

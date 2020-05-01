@@ -8,15 +8,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnNowHostingArgs : EventArgs
+    public class OnNowHostingArgs : EntityEventArgs
     {
         /// <summary>
         /// Property the channel that received the event.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
         /// <summary>
         /// Property representing channel that is being hosted.
         /// </summary>
-        public string HostedChannel;
+        public string HostedChannel { get; set; }
     }
 }

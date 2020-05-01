@@ -9,11 +9,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnUserBannedArgs : EventArgs
+    public class OnUserBannedArgs : EntityEventArgs
     {
         /// <summary>
         /// The user ban
         /// </summary>
-        public UserBan UserBan;
+        public UserBan UserBan { get; set; }
     }
 }

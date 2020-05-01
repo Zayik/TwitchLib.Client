@@ -3,7 +3,7 @@
 namespace TwitchLib.Client.Models
 {
     /// <summary>Model representing a sent message.</summary>
-    public class SentMessage
+    public class SentMessage : EntityData
     {
         /// <summary>Badges the sender has</summary>
         public List<KeyValuePair<string, string>> Badges { get; }

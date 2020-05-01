@@ -10,7 +10,7 @@ namespace TwitchLib.Client.Models
     ///     Also contains helpers to aid in performing actual replacements.
     ///     Expected to be called from the context of <see cref="ChatMessage"/> and <see cref="WhisperMessage"/>.
     /// </remarks>
-    public class MessageEmote
+    public class MessageEmote : EntityData
     {
         /// <summary>
         ///     Delegate allowing Emotes to handle their replacement text on a case-by-case basis.
@@ -85,7 +85,7 @@ namespace TwitchLib.Client.Models
         public static string SourceMatchingReplacementText(MessageEmote caller)
         {
             var sizeIndex = (int)caller.Size;
-            switch (caller.Source)
+            switch(caller.Source)
             {
                 case EmoteSource.BetterTwitchTv:
                     return string.Format(BetterTwitchTvEmoteUrls[sizeIndex], caller.Id);
@@ -208,7 +208,7 @@ namespace TwitchLib.Client.Models
             _escapedText = Regex.Escape(text);
             _source = source;
             _size = size;
-            if (replacementDelegate != null)
+            if(replacementDelegate != null)
             {
                 ReplacementDelegate = replacementDelegate;
             }
@@ -237,7 +237,7 @@ namespace TwitchLib.Client.Models
             get => _currentPattern;
             set
             {
-                if (_currentPattern != null && _currentPattern.Equals(value)) return;
+                if(_currentPattern != null && _currentPattern.Equals(value)) return;
                 _currentPattern = value;
                 PatternChanged = true;
             }
@@ -247,9 +247,9 @@ namespace TwitchLib.Client.Models
         {
             get
             {
-                if (PatternChanged)
+                if(PatternChanged)
                 {
-                    if (CurrentPattern != null)
+                    if(CurrentPattern != null)
                     {
                         _regex = new Regex(string.Format(CurrentPattern, ""));
                         PatternChanged = false;
@@ -294,12 +294,12 @@ namespace TwitchLib.Client.Models
         /// <param name="emote">The <see cref="MessageEmote"/> to add to the collection.</param>
         public void Add(MessageEmote emote)
         {
-            if (!_emoteList.TryGetValue(emote.Text, out var _))
+            if(!_emoteList.TryGetValue(emote.Text, out var _))
             {
                 _emoteList.Add(emote.Text, emote);
             }
 
-            if (CurrentPattern == null)
+            if(CurrentPattern == null)
             {
                 //string i = String.Format(_basePattern, "(" + emote.EscapedText + "){0}");
                 CurrentPattern = string.Format(BasePattern, emote.EscapedText);
@@ -319,7 +319,7 @@ namespace TwitchLib.Client.Models
         public void Merge(IEnumerable<MessageEmote> emotes)
         {
             var enumerator = emotes.GetEnumerator();
-            while (enumerator.MoveNext())
+            while(enumerator.MoveNext())
             {
                 Add(enumerator.Current);
             }
@@ -333,7 +333,7 @@ namespace TwitchLib.Client.Models
         /// <param name="emote">The <see cref="MessageEmote"/> to remove.</param>
         public void Remove(MessageEmote emote)
         {
-            if (!_emoteList.ContainsKey(emote.Text)) return;
+            if(!_emoteList.ContainsKey(emote.Text)) return;
 
             _emoteList.Remove(emote.Text);
 
@@ -378,8 +378,8 @@ namespace TwitchLib.Client.Models
         /// </returns>
         public string ReplaceEmotes(string originalMessage, EmoteFilterDelegate del = null)
         {
-            if (CurrentRegex == null) return originalMessage;
-            if (del != null && del != CurrentEmoteFilter) CurrentEmoteFilter = del;
+            if(CurrentRegex == null) return originalMessage;
+            if(del != null && del != CurrentEmoteFilter) CurrentEmoteFilter = del;
             var newMessage = CurrentRegex.Replace(originalMessage, GetReplacementString);
             CurrentEmoteFilter = _preferredFilter;
             return newMessage;
@@ -418,7 +418,7 @@ namespace TwitchLib.Client.Models
 
         private string GetReplacementString(Match m)
         {
-            if (!_emoteList.ContainsKey(m.Value)) return m.Value;
+            if(!_emoteList.ContainsKey(m.Value)) return m.Value;
 
             var emote = _emoteList[m.Value];
             return CurrentEmoteFilter(emote) ? emote.ReplacementString : m.Value;

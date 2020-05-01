@@ -9,15 +9,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnModeratorsReceivedArgs : EventArgs
+    public class OnModeratorsReceivedArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing the channel the moderator list came from.
         /// </summary>
-        public string Channel;
+        public string Channel { get; set; }
         /// <summary>
         /// Property representing the list of moderators.
         /// </summary>
-        public List<string> Moderators;
+        public List<string> Moderators { get; set; }
     }
 }

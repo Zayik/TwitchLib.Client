@@ -5,7 +5,7 @@ using TwitchLib.Client.Models.Internal;
 
 namespace TwitchLib.Client.Models
 {
-    public class RitualNewChatter
+    public class RitualNewChatter : EntityData
     {
         public List<KeyValuePair<string, string>> Badges { get; }
 
@@ -52,11 +52,11 @@ namespace TwitchLib.Client.Models
         public RitualNewChatter(IrcMessage ircMessage)
         {
             Message = ircMessage.Message;
-            foreach (var tag in ircMessage.Tags.Keys)
+            foreach(var tag in ircMessage.Tags.Keys)
             {
                 var tagValue = ircMessage.Tags[tag];
 
-                switch (tag)
+                switch(tag)
                 {
                     case Tags.Badges:
                         Badges = Common.Helpers.ParseBadges(tagValue);
@@ -108,7 +108,7 @@ namespace TwitchLib.Client.Models
                         UserId = tagValue;
                         break;
                     case Tags.UserType:
-                        switch (tagValue)
+                        switch(tagValue)
                         {
                             case "mod":
                                 UserType = UserType.Moderator;

@@ -8,11 +8,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnDisconnectedArgs : EventArgs
+    public class OnDisconnectedArgs : EntityEventArgs
     {
         /// <summary>
         /// Username of the bot that was disconnected.
         /// </summary>
-        public string BotUsername;
+        public string BotUsername { get; set; }
     }
 }

@@ -2,13 +2,15 @@
 
 namespace TwitchLib.Client.Models
 {
-    public class HostingStopped
+    public class HostingStopped : EntityData
     {
         /// <summary>Property representing hosting channel.</summary>
-        public string HostingChannel;
+        public string HostingChannel { get; protected set; }
 
         /// <summary>Property representing number of viewers that were in hosting channel.</summary>
-        public int Viewers;
+        public int Viewers { get; protected set; }
+
+        public HostingStopped() { }
 
         public HostingStopped(IrcMessage ircMessage)
         {

@@ -9,11 +9,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnBeingHostedArgs : EventArgs
+    public class OnBeingHostedArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing the Host notification
         /// </summary>
-        public BeingHostedNotification BeingHostedNotification;
+        public BeingHostedNotification BeingHostedNotification { get; set; }
     }
 }

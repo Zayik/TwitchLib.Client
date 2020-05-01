@@ -9,11 +9,11 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnMessageSentArgs : EventArgs
+    public class OnMessageSentArgs : EntityEventArgs
     {
         /// <summary>
         /// Property representing a chat message that was just sent (check null on properties before using).
         /// </summary>
-        public SentMessage SentMessage;
+        public SentMessage SentMessage { get; set; }
     }
 }

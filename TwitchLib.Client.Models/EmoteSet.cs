@@ -7,7 +7,7 @@ using TwitchLib.Client.Models.Extractors;
 namespace TwitchLib.Client.Models
 {
     /// <summary>Object representing emote set from a chat message.</summary>
-    public class EmoteSet
+    public class EmoteSet : EntityData
     {
         /// <summary>List containing all emotes in the message.</summary>
         public List<Emote> Emotes { get; }

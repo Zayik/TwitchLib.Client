@@ -9,15 +9,15 @@ namespace TwitchLib.Client.Events
     /// </summary>
     /// <seealso cref="System.EventArgs" />
     /// <inheritdoc />
-    public class OnConnectionErrorArgs : EventArgs
+    public class OnConnectionErrorArgs : EntityEventArgs
     {
         /// <summary>
         /// The error
         /// </summary>
-        public ErrorEvent Error;
+        public ErrorEvent Error { get; set; }
         /// <summary>
         /// Username of the bot that suffered connection error.
         /// </summary>
-        public string BotUsername;
+        public string BotUsername { get; set; }
     }
 }
